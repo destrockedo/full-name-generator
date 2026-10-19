@@ -35,6 +35,7 @@ public class FullNameApplication {
         if (!middleName.isEmpty()) {
             fullName = firstName + " " + middleName + " " + lastName;
         }
+        System.out.println();
 
 
         System.out.println(fullName);
