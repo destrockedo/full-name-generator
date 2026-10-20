@@ -22,23 +22,38 @@ public class FullNameApplication {
         System.out.println("Suffix (Optional): ");
         String suffix = scan.nextLine().trim();
         //Putting together
-        String fullName = firstName;
+       /* String fullName = firstName;
         if (middleName.isEmpty()) {
             fullName = firstName + " " + lastName;
         }
-        if (suffix.isEmpty()){
+        else if (suffix.isEmpty()){
             fullName = fullName + " " + lastName;
         }
-        if (!suffix.isEmpty()){
+        else if (!suffix.isEmpty()){
             fullName = firstName + " " + lastName + " " + suffix;
         }
-        if (!middleName.isEmpty()) {
+        else if (!middleName.isEmpty()) {
             fullName = firstName + " " + middleName + " " + lastName;
         }
         System.out.println();
 
 
-        System.out.println(fullName);
+        System.out.println(fullName);*/
+
+        String fullName = switch (
+                //if middle name is empty chose case 0 else case 1 +
+    (middleName.isEmpty() ? 0 : 1) +
+            //if suffix is empty choose case 0 else case 2
+    (suffix.isEmpty() ? 0 : 2)
+) {
+    case 0 -> firstName + " " + lastName;
+    case 1 -> firstName + " " + middleName + " " + lastName;
+    case 2 -> firstName + " " + lastName + ", " + suffix;
+    case 3 -> firstName + " " + middleName + " " + lastName + ", " + suffix;
+    default -> firstName + " " + lastName;
+};
+
+System.out.println("Full name: " + fullName);
 
 
 
